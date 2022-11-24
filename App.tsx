@@ -62,10 +62,6 @@ export default function App() {
         onUserOffline: (_connection, _Uid) => {
           // Este es un listener que nos dira cuando un usuario se desconecta
           setRemoteUid(0);
-          // const updatedUidsList = [...remoteUids];
-          // const offlineUidIndex = updatedUidsList.findIndex(x => x === Uid);
-          // updatedUidsList.slice(offlineUidIndex, 1);
-          // setRemoteUids(updatedUidsList);
         },
         onError: (errorCode, msg) => {
           console.log('Error Code', errorCode);
@@ -106,7 +102,6 @@ export default function App() {
     try {
       agoraEngineRef.current?.leaveChannel();
 
-      // setRemoteUids([]);
       setIsJoined(false);
       setIsMute(false);
 
@@ -137,8 +132,6 @@ export default function App() {
   useEffect(() => {
     // Inicializamos el motor de Agora cuando inicia la app
     setupVideoSDKEngine();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
